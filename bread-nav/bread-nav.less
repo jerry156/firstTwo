@@ -1,0 +1,76 @@
+.example {
+	width: 600px;
+	height: 32px;
+	margin: 100px auto;
+	line-height: 32px;
+	background: gray;
+  overflow: hidden;
+
+  .nav {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+
+		&::after {
+			content: "";
+      display: table;
+      clear: both;
+		}
+  }
+}
+
+
+  	
+.nav > li {
+	float: left;
+	position: relative;
+	width: 200px;
+	text-align: center;
+	z-index: 2;
+  
+  a {
+  	display: block;
+  	color: white;
+  	text-decoration: none;
+
+  	&::before {
+  		content: "";
+    	position: absolute;
+    	top: -8px;
+    	right: -24px; 
+    	width: 0; 
+    	height: 0;
+    	line-height: 0;
+    	border-width: 24px 0 24px 24px;
+    	border-color: transparent  transparent transparent white;
+    	border-style: solid;
+  	}
+
+  	&::after {
+  		content: "";
+  		position: absolute;
+	  	right: -16px;
+	  	top: 0;
+	  	width: 0; 
+	  	height: 0;
+	  	line-height: 0;
+	  	border-width: 16px 0 16px 16px;
+	  	border-color: transparent  transparent transparent gray;
+	  	border-style: solid;
+  	}
+  }
+
+	&.active {
+		background-color: orange;
+  	z-index: 1;
+    
+    a {
+    	color: black;
+    	&::after {
+    		border-color: transparent  transparent transparent orange;
+			}
+    }
+	}
+}
+
+  
